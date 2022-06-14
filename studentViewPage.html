@@ -1,0 +1,166 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="style_admin.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+
+<body>
+
+
+
+<!--BANNER-->
+<div class="banner">
+<span class="content_left">
+<a href="emailto:"><i class="fa fa-envelope"></i> support@cse-dsce.com</a>
+<a href="tel:+12345678"><i class="fa fa-phone"></i> +00-1234-56789</a>
+</span>
+</div>
+
+<!--NAVIGATION-->
+<header>
+<div class="topnav" id="myTopnav">
+<a class="logo">
+<div class="flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<img src="Images/logo.png" style="margin:0 10px;float:left;" alt="DSCE">
+</div>
+<div class="flip-card-back">
+<b>Computer Science Department, DSCE</b>
+</div>
+</div>
+</div></a>
+<a href="https://www.dsce.edu.in/contact-us">Contact</a>
+<a href="https://www.dsce.edu.in/academics/ug/computer-science-engineering">About Us</a>
+<a href="Login.html">Logout</a>
+<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+</header>
+<style>
+</style>
+<body>
+
+<h1> STUDENT DETAILS</h1>
+
+<table style="width:70%">
+  <tr>
+    <th id="name">Name</th>
+    <th id="usn">Usn</th>
+  
+   <th id="year">Academic year</th>
+    <th id="email">Email id</th>
+ 
+   <th id="bno">Batch Number</th>
+    <th id="guide">Guide Name</th>
+  
+   <th id="cname">Course Name</th>
+    <th id="ccode">Course Code</th>
+  
+   <th id="password">Password</th>
+    <th id="ptitle">Project title</th>
+  
+   <th id="code">Code github link</th>
+ 
+    <th id="synopsis">Synopsis</th>
+  </tr>
+</table>
+
+<button class="open-button" onclick="openForm()">View</button>
+
+<div class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h1>View</h1>
+
+    <label for="ptitle"><b>Project title</b></label>
+    <input type="text" placeholder="Enter Project Title" name="ptitle" required>
+
+    <label for="bno"><b>Batch Number</b></label>
+    <input type="number" placeholder="Enter Batch Number" name="bno" required>
+
+    <button type="submit" class="btn">Submit</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<button class="open-button1" onclick="openForm1()">Review</button>
+
+<div class="form-popup" id="myForm1">
+  <form action="/action_page1.php" class="form-container1">
+    <h1>Review</h1>
+
+    <label for="ptitle"><b>Reviews</b></label>
+    <input type="text" placeholder="Enter Review" name="ptitle" required>
+
+    <label for="bno"><b>Batch Number</b></label>
+    <input type="number" placeholder="Enter Batch Number" name="bno" required>
+
+    <button type="submit" class="btn1">Submit</button>
+    <button type="button" class="btn1 cancel" onclick="closeForm1()">Close</button>
+  </form>
+</div>
+
+
+<script>
+function openForm1() {
+  document.getElementById("myForm1").style.display = "block";
+}
+
+
+function closeForm1() {
+  document.getElementById("myForm1").style.display = "none";
+}
+
+</script>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+</script>
+<script>
+const toggleForm = () => {
+  const container = document.querySelector('.container');
+  container.classList.toggle('active');
+};
+    const container = document.querySelector('.container');
+    container.classList.toggle('active');
+  };
+
+  function login() {
+    const request = new XMLHttpRequest();
+    const url = 'http://localhost:8080/api/v1/admin_homepage';
+    request.open("POST", url);
+    request.setRequestHeader("Content-type", "application/json");
+    const data = JSON.stringify({
+      username: document.getElementById("username").value,
+      password: document.getElementById("password").value,
+	name:   document.getElementById("name").value, 
+	usn:    document.getElementById("usn").value,
+	year:   document.getElementById("year").value,
+	email:  document.getElementById("email").value,
+	bno:    document.getElementById("bno").value,
+	guide:  document.getElementById("guide").value,
+	cname:  document.getElementById("cname").value,
+	ccode:  document.getElementById("ccode").value,
+	password:document.getElementById("password").value,
+	ppt:     document.getElementById("ptitle").value,
+	code:    document.getElementById("code").value,
+	synopsis:document.getElementById("synopsis").value
+
+
+    })
+</script>
+</body>
+</html>
+

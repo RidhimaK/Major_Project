@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<link href="student_home_style.css" rel="stylesheet" type="text/css" />
+<link href="student_paper_style.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -41,9 +41,9 @@
 </header>
 
 <h1> UPLOAD DOCUMENTS </h1>
-<h3> UPLOAD SYNOPSIS</h3>
+<h3> UPLOAD SURVEY/RESEARCH PAPER</h3>
 <div class="content" >
-<form action="" method="POST">
+<form action="function.php" method="POST">
 <table border="1"  align="center" style="text-align:left" cellpadding="10">
 <tr>
 <td><input type="file" name="synopsis" id="synopsis" /></td>
@@ -54,20 +54,20 @@
 
 </form>
 <button class="float-left submit-button" onclick="return upload();" >UPLOAD</button>
-<button id="myButton" class="float-left submit-button" onclick=";" >NEXT</button>
+<button id="myButton" class="float-left submit-button" >NEXT</button>
 <button id="myButton1" class="float-left submit-button" >RESET</button>
 
 <script type="text/javascript">
     document.getElementById("myButton").onclick = function () {
-        location.href = "upload_ppt.html";
+        location.href = "upload_code.html";
     };
 </script>
 
 <script type="text/javascript">
     document.getElementById("myButton1").onclick = function () {
-        location.href = "studentHomePage.html";
+        location.href = "upload_paper.html";
     };
-</script>
+</script> 
 
 <script type="text/javascript">
 	function upload() {
@@ -82,13 +82,11 @@
 	    request.send(formData);
       	alert("request sent")
      	request.onload = (e) => {
-        	alert("file uploaded!")
+        	alert("file uploaded");
      	}
 
   	}
 </script>
-
-
 
 </body>
 </html>

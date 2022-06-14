@@ -41,7 +41,7 @@ $result=mysqli_query($mysqli,"SELECT* from studentdata ORDER by id DESC");
 <a href="https://www.dsce.edu.in/contact-us">Contact</a>
 <a href="https://www.dsce.edu.in/academics/ug/computer-science-engineering">About Us</a>
 <a href="Login.html">Logout</a>
-<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="return false;">&#9776;</a>
 </div>
 </header>
 
@@ -50,7 +50,8 @@ $result=mysqli_query($mysqli,"SELECT* from studentdata ORDER by id DESC");
 
 
 <div class="content" >
-<form action="function.php" method="POST">
+<form> 
+	<!-- action="function.php" method="POST" -->
 <table border="1"  align="center" style="text-align:left" cellpadding="10">
 <h2>STUDENT DETAILS</h2>
 <tr>
@@ -105,11 +106,9 @@ $result=mysqli_query($mysqli,"SELECT* from studentdata ORDER by id DESC");
 
 
 
-
-
 <tr>
 <td></td>
-<td><input type="submit" value="register"  name="submit" onclick="return validate()" style="height:40px;width:150px; background-color:#06C;color:#FFF;"/></td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+<td><input type="submit" value="register"  name="submit" onclick="return upload()" style="height:40px;width:150px; background-color:#06C;color:#FFF;"/></td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
 <td></td>
 <td><input type="reset" value="Reset" style="height:40px;width:150px; background-color:#06C;color:#FFF;"/></td>
 </tr>
@@ -118,6 +117,40 @@ $result=mysqli_query($mysqli,"SELECT* from studentdata ORDER by id DESC");
  </table>
 
 
+<script type="text/javascript">
+	function upload() {
+		alert("upload")
+	    const request = new XMLHttpRequest();
+	    request.timeout = 200000;
+	    const url = 'http://localhost:8080/upload/file';
+	    let formData = new FormData(); 
+  		formData.append("file", research.files[0]);
+  		// xhr.send(formData)
+	    request.open("POST", url);
+	    request.send(formData);
+      	alert("request sent")
+     	request.onload = (e) => {
+        	alert(request.status);
+     	}
+  	}
+</script>
+<script type="text/javascript">
+	function upload() {
+		alert("upload")
+	    const request = new XMLHttpRequest();
+	    request.timeout = 200000;
+	    const url = 'http://localhost:8080/upload/file';
+	    let formData = new FormData(); 
+  		formData.append("file", cfiles.files[0]);
+  		// xhr.send(formData)
+	    request.open("POST", url);
+	    request.send(formData);
+      	alert("request sent")
+     	request.onload = (e) => {
+        	alert(request.status);
+     	}
+  	}
+</script>
    
 
 

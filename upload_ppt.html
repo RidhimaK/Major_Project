@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<link href="student_home_style.css" rel="stylesheet" type="text/css" />
+<link href="upload_ppt_style.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -16,7 +16,8 @@
 <div class="banner">
 <span class="content_left">
 <a href="emailto:hod-cse@dayanandasagar.edu "><i class="fa fa-envelope"></i> hod-cse@dayanandasagar.edu</a>
-<a href="tel:080-42161726"><i class="fa fa-phone"></i> 080-42161726</a></span></span>
+<a href="tel:080-42161726"><i class="fa fa-phone"></i> 080-42161726</a></span>
+</span>
 </div>
 
 <!--NAVIGATION-->
@@ -41,7 +42,7 @@
 </header>
 
 <h1> UPLOAD DOCUMENTS </h1>
-<h3> UPLOAD SYNOPSIS</h3>
+<h3> UPLOAD PPT</h3>
 <div class="content" >
 <form action="" method="POST">
 <table border="1"  align="center" style="text-align:left" cellpadding="10">
@@ -51,21 +52,21 @@
 
 
 </table>
-
 </form>
-<button class="float-left submit-button" onclick="return upload();" >UPLOAD</button>
-<button id="myButton" class="float-left submit-button" onclick=";" >NEXT</button>
+ <button class="float-left submit-button" onclick="return upload();" >UPLOAD</button>
+<button id="myButton" class="float-left submit-button" onclick="" >NEXT</button>
 <button id="myButton1" class="float-left submit-button" >RESET</button>
+
 
 <script type="text/javascript">
     document.getElementById("myButton").onclick = function () {
-        location.href = "upload_ppt.html";
+        location.href = "upload_paper.html";
     };
 </script>
 
 <script type="text/javascript">
     document.getElementById("myButton1").onclick = function () {
-        location.href = "studentHomePage.html";
+        location.href = "upload_ppt.html";
     };
 </script>
 
@@ -82,13 +83,11 @@
 	    request.send(formData);
       	alert("request sent")
      	request.onload = (e) => {
-        	alert("file uploaded!")
+        	alert("file uploaded");
      	}
 
   	}
 </script>
-
-
 
 </body>
 </html>

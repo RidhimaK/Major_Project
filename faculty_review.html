@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<link href="admin_style.css" rel="stylesheet" type="text/css" />
+<link href="review_style.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -42,18 +42,44 @@
 
 <!--<div class="menu"></div>-->
 
-<div class="content">
-<h1 align="center">HELLO FACULTY! </h1>
-<form>
-<table align="center" cellpadding="10px">
+
+
+<div class="content" >
+<form action="function.php" method="POST">
+<table border="1"  align="center" style="text-align:left" cellpadding="10">
+<h2>MARKS AND REVIEW</h2>
 <tr>
-<td><a href="faculty_review.html"><input type="button" value="REVIEW" name="register" style="height:50px;width:150px; background-color:#06C;color:#FFF;" /></a></td>
-<td><a href="faculty_view.html?#"><input type="button" value="VIEW DATA"name="view" style="height:50px;width:150px; background-color:#06C;color:#FFF;" /></a></td>
+<th>Enter your name</th>
+<td><input type="text" name="name" maxlength="15"/></td>
+<th>Enter Batch Number</th>
+<td><input type="number" name="batchno" maxlength="15"/></td>
 </tr>
-</table>
+
+
+<tr>
+<th>Enter Marks</th>
+<td><input type="number" name="marks" id="marks" maxlength="10"/></td>
+<th>Enter review</th>
+<td><input type="text" name="review" id="review"/></td>
+</tr>
+
+
+
+
+
+<tr>
+<td></td>
+<td><input type="submit" value="SUBMIT"  name="submit" onclick="return validate()" style="height:40px;width:150px; background-color:#06C;color:#FFF;"/></td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+<td></td>
+<td><input type="reset" value="RESET" style="height:40px;width:150px; background-color:#06C;color:#FFF;"/></td>
+</tr>
 </form>
 
-</div>
+ </table>
+
+
+   
+
 
 </body>
 </html>
