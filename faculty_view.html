@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="faculty_view_style.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+
+<body>
+
+
+
+<!--BANNER-->
+<div class="banner">
+<span class="content_left">
+<a href="emailto:hod-cse@dayanandasagar.edu "><i class="fa fa-envelope"></i> hod-cse@dayanandasagar.edu</a>
+<a href="tel:080-42161726"><i class="fa fa-phone"></i> 080-42161726</a></span></span>
+</div>
+
+<!--NAVIGATION-->
+<header>
+<div class="topnav" id="myTopnav">
+<a class="logo">
+<div class="flip-card">
+<div class="flip-card-inner">
+<div class="flip-card-front">
+<img src="Images/logo.png" style="margin:0 10px;float:left;" alt="DSCE">
+</div>
+<div class="flip-card-back">
+<b>Computer Science Department, DSCE</b>
+</div>
+</div>
+</div></a>
+<a href="https://www.dsce.edu.in/contact-us">Contact</a>
+<a href="https://www.dsce.edu.in/academics/ug/computer-science-engineering">About Us</a>
+<a href="Login.html">Logout</a>
+<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+</header>
+
+<form class="form-wrapper cf" onsubmit="return searchbar();" >
+  	<!-- <input type="text" placeholder="Search here..." required> -->
+  	 <input id="search" type="text" class="input" placeholder="search..." />
+	  <button  type="submit">Search</button>
+</form>
+
+<!-- <div class="results-container">
+       <ul class="results-list" id="list">
+
+       </ul>
+</div> -->
+
+<div class="results-container">
+      
+      <table>
+      	<tr>
+			<th>Student Name</th>
+			<th>project</th>
+			<th>bath id</th>
+  		</tr>
+  		<tr class="results-list" id="list"></tr>
+      </table>
+</div>
+
+<div id="addtable">
+	
+</div>
+
+
+
+
+<script type="text/javascript">
+function searchbar() {
+	const request = new XMLHttpRequest();
+	request.timeout = 200000;
+	const url = 'http://localhost:8080/api/v1/studentinfo/all';
+	request.open("GET", url);
+	request.setRequestHeader("Content-type", "application/json");
+	request.send();
+	res = ""
+	students = ""
+ 	request.onload = (e) => {
+ 		if(request.status === 200) {
+ 			res = JSON.parse(request.response)
+    		for (var i=0;i<res.studentsList.length;i++) {
+    			console.log(res.studentsList[i])
+    		}
+ 			students = res.studentsList;
+
+			const searchInput = document.querySelector('.input')
+
+			let value = searchInput.value;
+			if (value && value.trim().length > 0){
+			    // 3. redefine 'value' to exclude white space and change input to all lowercase
+			     value = value.trim().toLowerCase()
+			    // 4. return the results only if the value of the search is included in the person's name
+			    //returning only the results of setList if the value of the search is included in the person's name
+			    addTable(students.filter(student => {
+			    	console.log(student.name);
+			        return student.name.includes(value)
+			    }))
+
+			    // addTable()
+
+			    // we need to write code (a function for filtering through our data to include the search input value)
+			} else {
+			    // 5. return nothing
+			    // input is invalid -- show an error message or show no results
+
+			}
+		}
+	}
+}
+
+
+
+
+// creating and declaring a function called "setList"
+// setList takes in a param of "results"
+function setList(results){
+
+    for (const person of results){
+        // creating a li element for each result item
+        const resultItem = document.createElement('li')
+
+        // adding a class to each item of the results
+        resultItem.classList.add('result-item')
+
+        // grabbing the name of the current point of the loop and adding the name as the list item's text
+        const text = document.createTextNode(person.name)
+
+        // appending the text to the result item
+        resultItem.appendChild(text)
+
+        // appending the result item to the list
+        list.append(resultItem)
+    }
+}
+
+function addTable(results) {
+	document.getElementById("addtable").innerHTML = '';
+	// alert(document.getElementById("addtable").innerHTML);
+    var c, r, t;
+    t = document.createElement('table');
+   	r = t.insertRow(-1);
+    // c = r.insertCell(0);
+    // c.innerHTML = 123;
+    
+
+    var i = 0
+     for (const student of results){ 
+     	r = t.insertRow(-1);
+     	c = r.insertCell(0);
+     	c.innerHTML = student.name;
+     	c = r.insertCell(1);
+     	c.innerHTML = student.usn;
+     }
+     document.getElementById("addtable").appendChild(t);
+     // alert(document.getElementById("addtable").innerHTML);
+}
+
+function getstudentDetails() {
+		alert("getstudentDetails")
+		const request = new XMLHttpRequest();
+		request.timeout = 200000;
+		const url = 'http://localhost:8080/api/v1/studentinfo/all';
+    	request.open("GET", url);
+    	request.setRequestHeader("Content-type", "application/json");
+    	request.send();
+
+     	request.onload = (e) => {
+     		if(request.status === 200) {
+     			res = JSON.parse(request.response)
+     			// alert(res)
+     			// alert(res[0].usn)
+     			// alert(res[0].name)
+    //  			for (var i = 0; i < res.counters.length; i++) {
+				//     var counter = jsonData.counters[i];
+				//     console.log(counter.counter_name);
+				// }
+        		// alert(res.studentsList)
+        		for (var i=0;i<res.studentsList.length;i++) {
+        			console.log(res.studentsList[i])
+        		}
+   				return res.studentsList;
+     		}
+     	}
+
+  	}
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
+</script>
+</body>
+</html>
