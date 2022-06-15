@@ -45,18 +45,21 @@
 
 
 <div class="content" >
-<form action="function.php" method="POST">
+<form method="POST" onsubmit="return submitReview();">
 <table border="1"  align="center" style="text-align:left" cellpadding="10">
 <h2>MARKS AND REVIEW</h2>
 <tr>
-<th>Enter your name</th>
-<td><input type="text" name="name" maxlength="15"/></td>
-<th>Enter Batch Number</th>
-<td><input type="number" name="batchno" maxlength="15"/></td>
+	<th>Enter Review Number</th>
+	<td><input type="text" name="name" maxlength="15" id="reviewnumber"/></td>
+	<th>Enter Student USN</th>
+	<td><input type="text" name="name" maxlength="15" id="usn"/></td>
+	<th>Enter Batch Number</th>
+	<td><input type="number" name="batchno" maxlength="15" id="batch"/></td>
 </tr>
 
 
 <tr>
+
 <th>Enter Marks</th>
 <td><input type="number" name="marks" id="marks" maxlength="10"/></td>
 <th>Enter review</th>
@@ -69,7 +72,7 @@
 
 <tr>
 <td></td>
-<td><input type="submit" value="SUBMIT"  name="submit" onclick="return validate()" style="height:40px;width:150px; background-color:#06C;color:#FFF;"/></td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+<td><input type="submit" value="SUBMIT"  name="submit"  style="height:40px;width:150px; background-color:#06C;color:#FFF;"/></td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
 <td></td>
 <td><input type="reset" value="RESET" style="height:40px;width:150px; background-color:#06C;color:#FFF;"/></td>
 </tr>
@@ -77,7 +80,30 @@
 
  </table>
 
+<script type="text/javascript">
+    function submitReview() {
+    	alert("reached");
+    	const request = new XMLHttpRequest();
+    	const url = 'http://localhost:8080/api/v1/review';
+    	request.open("POST", url);
+    	request.setRequestHeader("Content-type", "application/json");
+    	const data = JSON.stringify({
+    		reviewnumber: document.getElementById('reviewnumber').value,
+    		usn: document.getElementById('usn').value,
+    		batch: document.getElementById('batch').value,
+    		review: document.getElementById('review').value,
+    		marks: document.getElementById('marks').value,
 
+    	})
+    request.send(data);
+    request.onload = (e) => {
+     
+     alert("Review Submitted");
+     window.location.href="facultyHomePage.html";
+	}	
+	return false;
+}
+</script>
    
 
 
