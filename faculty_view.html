@@ -54,17 +54,17 @@
 
 <div class="results-container">
       
-      <table>
+      <!-- <table>
       	<tr>
-			<th>Student Name</th>
-			<th>project</th>
-			<th>bath id</th>
+			<th style="color: black;font-size: 35px;">Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+			<th>USN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+			<th>Batch id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
   		</tr>
   		<tr class="results-list" id="list"></tr>
-      </table>
+      </table> -->
 </div>
 
-<div id="addtable">
+<div id="addtable" >
 	
 </div>
 
@@ -144,12 +144,18 @@ function addTable(results) {
 	// alert(document.getElementById("addtable").innerHTML);
     var c, r, t;
     t = document.createElement('table');
+    t.classList.add('view-table-css')
    	r = t.insertRow(-1);
     // c = r.insertCell(0);
     // c.innerHTML = 123;
     
 
-    var i = 0
+      r = t.insertRow(-1);
+      c = r.insertCell(0);
+      c.innerHTML = "STUDENT NAME";
+      c = r.insertCell(1);
+      c.innerHTML = "STUDENT USN";
+
      for (const student of results){ 
      	r = t.insertRow(-1);
      	c = r.insertCell(0);

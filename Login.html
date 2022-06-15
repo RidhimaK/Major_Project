@@ -137,6 +137,10 @@
         email: document.getElementById("email").value,
         password: document.getElementById("firstpassword").value,
         userType: document.getElementById("userType").value,
+        academicyear: document.getElementById("year").value,
+        batchnumber: document.getElementById("bno").value,
+        guidename: document.getElementById("gname").value,
+
       })
       request.send(data);
       request.onload = (e) => {

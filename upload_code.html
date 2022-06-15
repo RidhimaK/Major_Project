@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<link href="student_home_style.css" rel="stylesheet" type="text/css" />
+<link href="code_style.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -53,17 +53,17 @@
 </table>
 </form>
  
-<button class="float-left submit-button" onclick="return upload();" >UPLOAD</button>
-<button id="myButton" class="float-left submit-button" >SUBMIT</button>
+<button id="myButton3" class="float-left submit-button" onclick="return upload();" >UPLOAD and SUBMIT</button>
+<!-- <button id="myButton" class="float-left submit-button" >SUBMIT</button> -->
 <button id="myButton1" class="float-left submit-button" >RESET</button>
 
 
-<script type="text/javascript">
-	alert("All documents are submited.")
+<!-- <script type="text/javascript">
     document.getElementById("myButton").onclick = function () {
-        location.href = "studentHomepage.html";
+      alert("All documents are submited.")
+      location.href = "studentHomepage.html";
     };
-</script>
+</script> -->
 
 
 <script type="text/javascript">
@@ -89,6 +89,8 @@
         	alert("file uploaded");
      	}
 
+      alert("All documents are submited.")
+      location.href = "studentHomepage.html";
   	}
 </script>
 

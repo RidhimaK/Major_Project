@@ -252,9 +252,10 @@ transform: rotateY(180deg);
 
 
 body {
-        background-image: url(Images/form.jpeg);
+        background-image: url(Images/99.jpg);
         font: 13px 'Lucida sans', Arial, Helvetica;
         color: #eee;
+
        
     }
     
@@ -394,3 +395,36 @@ body {
   text-decoration:none;
 }
 
+/*.view-table-css {
+     border: 5px solid black;
+     width: 100%;
+     text-align: center;
+     color: black;
+     font-size: 25px;
+}*/
+
+.view-table-css  {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+     color: black;
+     font-size: 25px;
+}
+
+.view-table-css  td, .view-table-css  th {
+  border: 5px solid #ddd;
+  padding: 8px;
+}
+
+.view-table-css  tr:nth-child(even){background-color: #32a89e;}
+
+.view-table-css  tr:hover {background-color: #ddd;}
+
+.view-table-css  th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}

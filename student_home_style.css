@@ -292,7 +292,14 @@ transform: rotateY(180deg);
 
 #myButton{
 
-    margin-left: 46%;
+    margin-left: 47%;
     margin-top: 15px;
 
 }
+
+#myButton3{
+    margin-left: 48%;
+    margin-top: 15px;
+
+}
+
