@@ -61,7 +61,7 @@ h1 {
 }
 
 h3{
-    padding-left: 34%;
+    padding-left: 42%;
     font-size: 28px;
     padding-top: 20px;
     color: #080808;
@@ -290,7 +290,6 @@ transform: rotateY(180deg);
 }
 
 
-
 #myButton{
 
     margin-left: 47%;
@@ -299,8 +298,8 @@ transform: rotateY(180deg);
 }
 
 #myButton3{
-
-    margin-left: 48%;
+    margin-left: 45%;
     margin-top: 15px;
 
 }
+
